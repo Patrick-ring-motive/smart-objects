@@ -45,7 +45,7 @@ proxyPrototype(SmartArray.prototype,{
     const value = Reflect.get(...arguments);
     if(value == undefined && typeof ArrValues[key] === 'function'){
       
-      return ArrEntries[key].bind(ArrProto.values.call($this));
+      return ArrValues[key].bind(ArrProto.values.call($this));
     }
     return value;
   }
