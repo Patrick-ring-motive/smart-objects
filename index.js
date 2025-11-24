@@ -63,9 +63,8 @@ const SetProto = Set.prototype;
 proxyPrototype(SmartSet.prototype,{
   get(target,key,receiver){
     const $this = receiver ?? target;
-    const value = Reflect.get(...arguments) ?? SetProto.has.call($this);
+    const value = Reflect.get(...arguments);
     if(value == undefined && typeof SetValues[key] === 'function'){
-      
       return SetValues[key].bind(SetProto.values.call($this));
     }
     return value;
