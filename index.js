@@ -66,7 +66,7 @@ proxyPrototype(SmartSet.prototype,{
     const value = Reflect.get(...arguments) ?? SetProto.has.call($this);
     if(value == undefined && typeof SetValues[key] === 'function'){
       
-      return SetValues[key].bind(SetProto.entries.call($this));
+      return SetValues[key].bind(SetProto.values.call($this));
     }
     return value;
   }
